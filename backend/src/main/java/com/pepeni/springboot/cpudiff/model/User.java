@@ -3,14 +3,19 @@ package com.pepeni.springboot.cpudiff.model;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    String email;
-    String nick;
-    String password;
+    private Integer id;
+    private String email;
+    private String nick;
+    private String password;
 
     public User(String email, String nick, String password) {
         this.email = email;
         this.nick = nick;
         this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getEmail() {
