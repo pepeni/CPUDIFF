@@ -3,13 +3,13 @@ package com.pepeni.springboot.cpudiff.model;
 import java.io.Serializable;
 
 public class Processor implements Serializable {
-    private Integer id;
+    private Long id;
     private String CpuClass;
     private Integer Cores;
     private Double ProcessorClockSpeed;
     private Double ProcessorClockSpeedTurbo;
 
-    public Processor(Integer id, String cpuClass, Integer cores, Double processorClockSpeed, Double processorClockSpeedTurbo) {
+    public Processor(Long id, String cpuClass, Integer cores, Double processorClockSpeed, Double processorClockSpeedTurbo) {
         this.id = id;
         CpuClass = cpuClass;
         Cores = cores;
@@ -17,8 +17,12 @@ public class Processor implements Serializable {
         ProcessorClockSpeedTurbo = processorClockSpeedTurbo;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCpuClass() {

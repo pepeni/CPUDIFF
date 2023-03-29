@@ -5,14 +5,17 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name="USER")
 public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
-    private Integer id;
+    private Long id;
     private String email;
+    @Column(length = 50, nullable = false, unique = true)
     private String nick;
+    @Column(nullable = false)
     private String password;
 
     public User() {
@@ -24,11 +27,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

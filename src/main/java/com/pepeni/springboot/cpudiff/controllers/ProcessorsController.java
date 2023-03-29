@@ -14,7 +14,7 @@ public class ProcessorsController {
 
     @GetMapping("/processor")
     public ResponseEntity<Processor> getProcesor(){
-        Processor processor = new Processor(1, "Desktop", 6, 2.6, 3.6);
+        Processor processor = new Processor(1L, "Desktop", 6, 2.6, 3.6);
         return new ResponseEntity<Processor>(processor, HttpStatus.OK);
     }
 }
