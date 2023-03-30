@@ -1,13 +1,23 @@
 package com.pepeni.springboot.cpudiff.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
+@Entity
+@Table(name="PROCESSOR")
 public class Processor implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private Long id;
     private String CpuClass;
     private Integer Cores;
     private Double ProcessorClockSpeed;
     private Double ProcessorClockSpeedTurbo;
+
+    public Processor() {
+    }
 
     public Processor(Long id, String cpuClass, Integer cores, Double processorClockSpeed, Double processorClockSpeedTurbo) {
         this.id = id;
