@@ -3,9 +3,10 @@ package com.pepeni.springboot.cpudiff.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
-@Table(name="USER")
+@Table(name="USERS")
 public class User implements Serializable {
 
     @Id
@@ -17,6 +18,9 @@ public class User implements Serializable {
     private String nick;
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "users")
+    Set<Comment> comments;
 
     public User() {
     }

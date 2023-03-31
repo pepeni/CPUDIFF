@@ -3,6 +3,7 @@ package com.pepeni.springboot.cpudiff.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name="PROCESSOR")
@@ -15,6 +16,9 @@ public class Processor implements Serializable {
     private Integer Cores;
     private Double ProcessorClockSpeed;
     private Double ProcessorClockSpeedTurbo;
+
+    @OneToMany(mappedBy = "processor")
+    Set<Comment> comments;
 
     public Processor() {
     }
