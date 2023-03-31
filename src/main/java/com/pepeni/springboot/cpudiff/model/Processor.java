@@ -70,4 +70,16 @@ public class Processor implements Serializable {
     public void setProcessorClockSpeedTurbo(Double processorClockSpeedTurbo) {
         ProcessorClockSpeedTurbo = processorClockSpeedTurbo;
     }
+
+    @Override
+    public String toString() {
+        return "Processor{" +
+                "id=" + id +
+                ", CpuClass='" + CpuClass + '\'' +
+                ", Cores=" + Cores +
+                ", ProcessorClockSpeed=" + ProcessorClockSpeed +
+                ", ProcessorClockSpeedTurbo=" + ProcessorClockSpeedTurbo +
+                ", comments=" + comments +
+                '}';
+    }
 }
