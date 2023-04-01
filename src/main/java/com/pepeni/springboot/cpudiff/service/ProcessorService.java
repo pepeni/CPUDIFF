@@ -1,8 +1,6 @@
 package com.pepeni.springboot.cpudiff.service;
 
-import com.pepeni.springboot.cpudiff.exception.ArticleNotFoundException;
 import com.pepeni.springboot.cpudiff.exception.ProcessorNotFoundException;
-import com.pepeni.springboot.cpudiff.model.Article;
 import com.pepeni.springboot.cpudiff.model.Processor;
 import com.pepeni.springboot.cpudiff.repository.ProcessorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
