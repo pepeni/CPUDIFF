@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProcessorsController {
 
 
+
     @GetMapping("/processor")
     public ResponseEntity<Processor> getProcesor(){
         Processor processor = new Processor(1L, "Desktop", 6, 2.6, 3.6);

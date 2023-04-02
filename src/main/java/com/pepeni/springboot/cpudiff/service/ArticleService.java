@@ -30,6 +30,10 @@ public class ArticleService {
         return articleRepo.findArticleById(id).orElseThrow(() -> new ArticleNotFoundException("Article by id = " + id + " was not found"));
     }
 
+    public Article updateArticle(Article article){
+        return articleRepo.save(article);
+    }
+
     public void deleteArticle(Long id){
         articleRepo.deleteById(id);
     }

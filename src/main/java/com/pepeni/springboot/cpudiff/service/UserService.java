@@ -28,7 +28,11 @@ public class UserService {
     }
 
     public User findUserById(Long id){
-        return userRepo.findUserById(id).orElseThrow(() -> new UserNotFoundException("Processor by id = " + id + " was not found"));
+        return userRepo.findUserById(id).orElseThrow(() -> new UserNotFoundException("User by id = " + id + " was not found"));
+    }
+
+    public void findUserByNick(String nick){
+        userRepo.findUserByNick(nick).orElseThrow(() -> new UserNotFoundException("User by nick = " + nick + " was not found"));
     }
 
     public void deleteUser(Long id){
