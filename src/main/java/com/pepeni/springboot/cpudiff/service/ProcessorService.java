@@ -30,6 +30,10 @@ public class ProcessorService {
         return processorRepo.findProcessorById(id).orElseThrow(() -> new ProcessorNotFoundException("Processor by id = " + id + " was not found"));
     }
 
+    public Processor updateProcessor(Processor processor){
+        return processorRepo.save(processor);
+    }
+
     public void deleteProcessor(Long id){
         processorRepo.deleteById(id);
     }

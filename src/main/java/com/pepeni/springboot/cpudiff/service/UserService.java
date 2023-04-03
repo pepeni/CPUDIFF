@@ -31,8 +31,8 @@ public class UserService {
         return userRepo.findUserById(id).orElseThrow(() -> new UserNotFoundException("User by id = " + id + " was not found"));
     }
 
-    public void findUserByNick(String nick){
-        userRepo.findUserByNick(nick).orElseThrow(() -> new UserNotFoundException("User by nick = " + nick + " was not found"));
+    public User findUserByNick(String nick){
+        return userRepo.findUserByNick(nick).orElseThrow(() -> new UserNotFoundException("User by nick = " + nick + " was not found"));
     }
 
     public void deleteUser(Long id){
