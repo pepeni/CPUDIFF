@@ -1,14 +1,13 @@
 package com.pepeni.springboot.cpudiff.service;
 
-import com.pepeni.springboot.cpudiff.exception.ProcessorNotFoundException;
 import com.pepeni.springboot.cpudiff.exception.UserNotFoundException;
-import com.pepeni.springboot.cpudiff.model.Processor;
 import com.pepeni.springboot.cpudiff.model.User;
 import com.pepeni.springboot.cpudiff.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -31,8 +30,12 @@ public class UserService {
         return userRepo.findUserById(id).orElseThrow(() -> new UserNotFoundException("User by id = " + id + " was not found"));
     }
 
-    public User findUserByNick(String nick){
-        return userRepo.findUserByNick(nick).orElseThrow(() -> new UserNotFoundException("User by nick = " + nick + " was not found"));
+    public Optional<User> findUserByNick(String nick){
+        return userRepo.findUserByNick(nick);
+    }
+
+    public User findUserByEmail(String email){
+        return userRepo.findUserByEmail(email).orElseThrow(() -> new UserNotFoundException("User by email = " + email + " was not found"));
     }
 
     public void deleteUser(Long id){

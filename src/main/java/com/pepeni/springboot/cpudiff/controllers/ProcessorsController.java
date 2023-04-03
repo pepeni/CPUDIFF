@@ -1,6 +1,5 @@
 package com.pepeni.springboot.cpudiff.controllers;
 
-import com.pepeni.springboot.cpudiff.model.Article;
 import com.pepeni.springboot.cpudiff.model.Processor;
 import com.pepeni.springboot.cpudiff.service.ProcessorService;
 import org.springframework.http.HttpStatus;
@@ -22,8 +21,14 @@ public class ProcessorsController {
 
     @GetMapping("/processorTest")
     public ResponseEntity<Processor> getProcesorTest(){
-        Processor processor = new Processor(1L, "Desktop", 6, 2.6, 3.6);
+        Processor processor = new Processor( "name", "Desktop", 6, 2.6, 3.6);
         return new ResponseEntity<Processor>(processor, HttpStatus.OK);
+    }
+
+    @GetMapping("/allProcessors")
+    public ResponseEntity<List<Processor>> getAllProcessors(){
+        List<Processor> processors = processorService.findAllProcessors();
+        return new ResponseEntity<>(processors, HttpStatus.OK);
     }
 
     @GetMapping("/processor/{id}")
@@ -32,10 +37,10 @@ public class ProcessorsController {
         return new ResponseEntity<Processor>(processor, HttpStatus.OK);
     }
 
-    @GetMapping("/addProcessor")
-    public ResponseEntity<List<Processor>> addProcesor(){
-        List<Processor> processors = processorService.findAllProcessors();
-        return new ResponseEntity<List<Processor>>(processors, HttpStatus.OK);
+    @PostMapping("/addProcessor")
+    public ResponseEntity<Processor> addProcesor(@RequestBody Processor processor){
+        Processor addProcessor = processorService.addProcessor(processor);
+        return new ResponseEntity<Processor>(addProcessor, HttpStatus.OK);
     }
 
     @PutMapping("/updateProcessor")
