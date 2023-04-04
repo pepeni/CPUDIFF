@@ -12,10 +12,11 @@ public class Processor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
-    private String CpuClass;
-    private Integer Cores;
-    private Double ProcessorClockSpeed;
-    private Double ProcessorClockSpeedTurbo;
+    private String name;
+    private String cpuClass;
+    private Integer cores;
+    private Double processorClockSpeed;
+    private Double processorClockSpeedTurbo;
 
     @OneToMany(mappedBy = "processor")
     Set<Comment> comments;
@@ -23,12 +24,20 @@ public class Processor implements Serializable {
     public Processor() {
     }
 
-    public Processor(Long id, String cpuClass, Integer cores, Double processorClockSpeed, Double processorClockSpeedTurbo) {
-        this.id = id;
-        CpuClass = cpuClass;
-        Cores = cores;
-        ProcessorClockSpeed = processorClockSpeed;
-        ProcessorClockSpeedTurbo = processorClockSpeedTurbo;
+    public Processor(String name, String cpuClass, Integer cores, Double processorClockSpeed, Double processorClockSpeedTurbo) {
+        this.name = name;
+        this.cpuClass = cpuClass;
+        this.cores = cores;
+        this.processorClockSpeed = processorClockSpeed;
+        this.processorClockSpeedTurbo = processorClockSpeedTurbo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -40,34 +49,46 @@ public class Processor implements Serializable {
     }
 
     public String getCpuClass() {
-        return CpuClass;
+        return cpuClass;
     }
 
     public void setCpuClass(String cpuClass) {
-        CpuClass = cpuClass;
+        this.cpuClass = cpuClass;
     }
 
     public Integer getCores() {
-        return Cores;
+        return cores;
     }
 
     public void setCores(Integer cores) {
-        Cores = cores;
+        this.cores = cores;
     }
 
     public Double getProcessorClockSpeed() {
-        return ProcessorClockSpeed;
+        return processorClockSpeed;
     }
 
     public void setProcessorClockSpeed(Double processorClockSpeed) {
-        ProcessorClockSpeed = processorClockSpeed;
+        this.processorClockSpeed = processorClockSpeed;
     }
 
     public Double getProcessorClockSpeedTurbo() {
-        return ProcessorClockSpeedTurbo;
+        return processorClockSpeedTurbo;
     }
 
     public void setProcessorClockSpeedTurbo(Double processorClockSpeedTurbo) {
-        ProcessorClockSpeedTurbo = processorClockSpeedTurbo;
+        this.processorClockSpeedTurbo = processorClockSpeedTurbo;
+    }
+
+    @Override
+    public String toString() {
+        return "Processor{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cpuClass='" + cpuClass + '\'' +
+                ", cores=" + cores +
+                ", processorClockSpeed=" + processorClockSpeed +
+                ", processorClockSpeedTurbo=" + processorClockSpeedTurbo +
+                '}';
     }
 }

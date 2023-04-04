@@ -63,4 +63,14 @@ public class Comment implements Serializable {
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", users=" + users +
+                ", processor=" + processor +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }
