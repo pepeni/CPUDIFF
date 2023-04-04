@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -9,6 +10,17 @@ import { ComparisonComponent } from './comparison/comparison.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ProcessorComponent } from './processor/processor.component';
+
+
+const appRoute: Routes = [
+  {path: 'Login', component: LoginComponent},
+  {path: 'Register', component: RegisterComponent},
+  {path: 'Menu', component: MenuComponent},
+  {path: 'ArticleList', component: ArticleListComponent},
+  {path: 'Article', component: ArticleComponent},
+  {path: 'Processor', component: ProcessorComponent},
+  {path: 'Comparison', component: ComparisonComponent}
+]
 
 @NgModule({
   declarations: [
@@ -22,7 +34,8 @@ import { ProcessorComponent } from './processor/processor.component';
     ProcessorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoute)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: #1C1A1D;
-    height: 100%;
-    overflow: hidden;
-}
-
 .container{
     position: absolute;
     top: 50%;
