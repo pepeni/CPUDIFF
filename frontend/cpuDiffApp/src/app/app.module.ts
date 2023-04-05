@@ -13,6 +13,7 @@ import { ProcessorComponent } from './processor/processor.component';
 
 
 const appRoute: Routes = [
+  {path: '', component: MenuComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegisterComponent},
   {path: 'Menu', component: MenuComponent},
