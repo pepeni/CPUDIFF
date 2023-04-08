@@ -8,8 +8,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface CommentRepo extends JpaRepository<Comment, Long> {
-    Optional<Comment> findCommentById(Long id);
+    Comment findCommentById(Long id);
 
     @Query(value = "SELECT * FROM COMMENT WHERE processor_id = :processorId", nativeQuery = true)
-    Optional<Comment> findCommentByProcessorId(@Param("processorId") Long id);
+    Comment findCommentByProcessorId(@Param("processorId") Long id);
 }

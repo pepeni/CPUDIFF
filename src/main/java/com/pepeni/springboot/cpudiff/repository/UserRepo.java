@@ -8,11 +8,11 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface UserRepo extends JpaRepository<User, Long> {
-    Optional<User> findUserById(Long id);
+    User findUserById(Long id);
 
     @Query(value = "SELECT * FROM USERS WHERE nick= :myNick", nativeQuery = true)
-    Optional<User> findUserByNick(@Param("myNick") String nick);
+    User findUserByNick(@Param("myNick") String nick);
 
     @Query(value = "SELECT * FROM USERS WHERE email= :myEmail", nativeQuery = true)
-    Optional<User> findUserByEmail(@Param("myEmail") String email);
+    User findUserByEmail(@Param("myEmail") String email);
 }

@@ -27,7 +27,7 @@ public class ArticleService {
     }
 
     public Article findArticleById(Long id){
-        return articleRepo.findArticleById(id).orElseThrow(() -> new ArticleNotFoundException("Article by id = " + id + " was not found"));
+        return articleRepo.findArticleById(id);
     }
 
     public Article updateArticle(Article article){

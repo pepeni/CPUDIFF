@@ -28,7 +28,7 @@ public class RegistrationController {
             return new ResponseEntity<>("This email is used by existing account", HttpStatus.BAD_REQUEST);
         }
 
-        if (userService.findUserByNick(request.nickname()).isPresent()) {
+        if (userService.findUserByNick(request.nickname())!=null) {
             return new ResponseEntity<>("This nickname is used by existing account", HttpStatus.BAD_REQUEST);
         }
 

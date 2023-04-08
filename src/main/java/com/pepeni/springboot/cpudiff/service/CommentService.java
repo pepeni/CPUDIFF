@@ -26,11 +26,11 @@ public class CommentService {
     }
 
     public Comment findCommentById(Long id){
-        return commentRepo.findCommentById(id).orElseThrow(() -> new CommentNotFoundException("Comment by id = " + id + " was not found"));
+        return commentRepo.findCommentById(id);
     }
 
     public Comment findCommentByProcessorId(Long id){
-        return commentRepo.findCommentByProcessorId(id).orElseThrow(() -> new CommentNotFoundException("Comment by Processor id = " + id + " was not found"));
+        return commentRepo.findCommentByProcessorId(id);
     }
 
     public void deleteComment(Long id){

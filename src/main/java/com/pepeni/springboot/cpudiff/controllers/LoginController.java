@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -28,14 +29,16 @@ public class LoginController {
         if (userService.findUserByEmail(request.login()) != null) {
             user = userService.findUserByEmail(request.login());
         }
-        else if (userService.findUserByNick(request.login()).isPresent()) {
+        else if (userService.findUserByNick(request.login())!=null) {
             user = userService.findUserByNick(request.login());
         }
         else {
             return new ResponseEntity<>("This nickname is used by existing account", HttpStatus.BAD_REQUEST);
         }
 
-        if(user.)
+        if(!(Objects.equals(user.getPassword(), request.password()))){
+            return new ResponseEntity<>("Password is incorrect", HttpStatus.BAD_REQUEST);
+        }
 
         return new ResponseEntity<>("User loged in successfully", HttpStatus.OK);
     }
