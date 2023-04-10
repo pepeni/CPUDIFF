@@ -1,6 +1,5 @@
 package com.pepeni.springboot.cpudiff.service;
 
-import com.pepeni.springboot.cpudiff.exception.CommentNotFoundException;
 import com.pepeni.springboot.cpudiff.model.Comment;
 import com.pepeni.springboot.cpudiff.repository.CommentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,12 @@ public class CommentService {
         return commentRepo.findCommentById(id);
     }
 
-    public Comment findCommentByProcessorId(Long id){
+    public List<Comment> findCommentByProcessorId(Long id){
         return commentRepo.findCommentByProcessorId(id);
+    }
+
+    public Comment updateComment(Comment comment){
+        return commentRepo.save(comment);
     }
 
     public void deleteComment(Long id){
