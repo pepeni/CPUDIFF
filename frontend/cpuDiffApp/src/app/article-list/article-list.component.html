@@ -21,41 +21,12 @@
             </div>
         </div>
         <div class="articles-container">
-            <a class="article-link" href="">
+            <a *ngFor="let article of articles" class="article-link" href="">
                 <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
+                    <p>{{article.title}}</p>
                 </div>
             </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
+            
         </div>
     </div>
   </body>

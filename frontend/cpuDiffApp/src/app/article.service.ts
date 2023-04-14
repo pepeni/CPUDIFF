@@ -7,7 +7,7 @@ import { Article } from './article';
   providedIn: 'root'
 })
 export class ArticleService {
-  private apiServerUrl = '';
+  private apiServerUrl = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) { }
 
