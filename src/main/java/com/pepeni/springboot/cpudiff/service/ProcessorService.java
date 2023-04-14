@@ -27,7 +27,7 @@ public class ProcessorService {
     }
 
     public Processor findProcessorById(Long id){
-        return processorRepo.findProcessorById(id).orElseThrow(() -> new ProcessorNotFoundException("Processor by id = " + id + " was not found"));
+        return processorRepo.findProcessorById(id);
     }
 
     public Processor updateProcessor(Processor processor){

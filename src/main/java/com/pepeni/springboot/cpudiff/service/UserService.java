@@ -27,15 +27,15 @@ public class UserService {
     }
 
     public User findUserById(Long id){
-        return userRepo.findUserById(id).orElseThrow(() -> new UserNotFoundException("User by id = " + id + " was not found"));
+        return userRepo.findUserById(id);
     }
 
-    public Optional<User> findUserByNick(String nick){
+    public User findUserByNick(String nick){
         return userRepo.findUserByNick(nick);
     }
 
     public User findUserByEmail(String email){
-        return userRepo.findUserByEmail(email).orElseThrow(() -> new UserNotFoundException("User by email = " + email + " was not found"));
+        return userRepo.findUserByEmail(email);
     }
 
     public void deleteUser(Long id){

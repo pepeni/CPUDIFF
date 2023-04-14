@@ -17,45 +17,16 @@
             </div>
             <div class="view-name"><h1>Dowiedz się więcej!</h1></div>
             <div class="menu-link-div">
-                <a href="" class="menu-link">menu</a>
+                <a routerLink="/Menu" class="menu-link">menu</a>
             </div>
         </div>
         <div class="articles-container">
-            <a class="article-link" href="">
+            <a *ngFor="let article of articles" class="article-link" href="">
                 <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
+                    <p>{{article.title}}</p>
                 </div>
             </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
-            <a class="article-link" href="">
-                <div class="article">
-                    <p>Co kryje się za nazwą modelu CPU</p>
-                </div>
-            </a>
+            
         </div>
     </div>
   </body>

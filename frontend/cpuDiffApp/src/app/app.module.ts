@@ -10,9 +10,11 @@ import { ComparisonComponent } from './comparison/comparison.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ProcessorComponent } from './processor/processor.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 const appRoute: Routes = [
+  {path: '', component: MenuComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegisterComponent},
   {path: 'Menu', component: MenuComponent},
@@ -35,7 +37,8 @@ const appRoute: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

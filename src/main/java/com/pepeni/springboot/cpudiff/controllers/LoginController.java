@@ -10,46 +10,45 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
+import java.util.Optional;
+
 @RestController
 @Service
-public class RegistrationController {
+public class LoginController {
 
     private final UserService userService;
 
-    public RegistrationController(UserService userService) {
+    public LoginController(UserService userService) {
         this.userService = userService;
     }
 
-
-    @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody RegistrationRequest request) {
-
-        if (userService.findUserByEmail(request.email()) != null) {
-            return new ResponseEntity<>("This email is used by existing account", HttpStatus.BAD_REQUEST);
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestBody loginRequest request){
+        User user;
+        if (userService.findUserByEmail(request.login()) != null) {
+            user = userService.findUserByEmail(request.login());
         }
-
-        if (userService.findUserByNick(request.nickname())!=null) {
+        else if (userService.findUserByNick(request.login())!=null) {
+            user = userService.findUserByNick(request.login());
+        }
+        else {
             return new ResponseEntity<>("This nickname is used by existing account", HttpStatus.BAD_REQUEST);
         }
 
-        userService.addUser(new User(request.nickname(), request.email(), request.password()));
-        User user = userService.findUserByEmail(request.email());
+        if(!(Objects.equals(user.getPassword(), request.password()))){
+            return new ResponseEntity<>("Password is incorrect", HttpStatus.BAD_REQUEST);
+        }
 
-        return new ResponseEntity<>("User registered successfully", HttpStatus.OK);
+        return new ResponseEntity<>("User loged in successfully", HttpStatus.OK);
     }
 
-    private record RegistrationRequest(
-            @NotNull(message = "0")
-            @NotBlank(message = "1")
-            @Size(min = 3, max = 50, message = "2")
-            String nickname,
+    private record loginRequest(
 
-            @Email(message = "3")
-            @Pattern(regexp = ".+@.+\\..+", message = "3")
             @NotBlank(message = "1")
             @NotNull(message = "0")
             @Size(min = 3, max = 64, message = "2")
-            String email,
+            String login,
 
             @NotNull(message = "0")
             @NotBlank(message = "1")
