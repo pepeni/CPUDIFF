@@ -44,7 +44,7 @@ public class ArticleController {
         return new ResponseEntity<>(updateArticle, HttpStatus.OK);
     }
 
-    @GetMapping("/deleteArticle/{id}")
+    @DeleteMapping("/deleteArticle/{id}")
     public ResponseEntity<?> deleteArticleById(@PathVariable("id") Long id){
         articleService.deleteArticle(id);
         return new ResponseEntity<>(HttpStatus.OK);

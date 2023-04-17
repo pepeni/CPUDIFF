@@ -49,7 +49,7 @@ public class ProcessorsController {
         return new ResponseEntity<>(updateProcessor, HttpStatus.OK);
     }
 
-    @GetMapping("/deleteProcessor/{id}")
+    @DeleteMapping("/deleteProcessor/{id}")
     public ResponseEntity<?> deleteProcessorById(@PathVariable("id") Long id){
         processorService.deleteProcessor(id);
         return new ResponseEntity<>(HttpStatus.OK);
