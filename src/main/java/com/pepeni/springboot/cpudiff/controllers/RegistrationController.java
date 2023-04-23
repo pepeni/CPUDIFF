@@ -39,22 +39,22 @@ public class RegistrationController {
     }
 
     private record RegistrationRequest(
-            @NotNull(message = "0")
-            @NotBlank(message = "1")
-            @Size(min = 3, max = 50, message = "2")
+            @NotNull(message = "Please enter valid nickname")
+            @NotBlank(message = "Please enter valid nickname")
+            @Size(min = 3, max = 50, message = "Please enter valid nickname 3 - 50 characters")
             String nickname,
 
-            @Email(message = "3")
-            @Pattern(regexp = ".+@.+\\..+", message = "3")
-            @NotBlank(message = "1")
-            @NotNull(message = "0")
-            @Size(min = 3, max = 64, message = "2")
+            @Email(message = "Please enter valid email")
+            @Pattern(regexp = ".+@.+\\..+", message = "Please enter valid email")
+            @NotBlank(message = "Please enter valid email")
+            @NotNull(message = "Please enter valid email")
+            @Size(min = 3, max = 64, message = "Please enter valid email")
             String email,
 
-            @NotNull(message = "0")
-            @NotBlank(message = "1")
-            @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–\\[\\]{}:;',?/*~$^+=<>]).{8,64}$", message =
-                    "4")
+            @NotNull(message = "Please enter valid password")
+            @NotBlank(message = "Please enter valid password")
+            @Pattern(regexp = "^.{5,64}$", message =
+                    "Please enter valid password 5-64 characters")
             String password) {
     }
 

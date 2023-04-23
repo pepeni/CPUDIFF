@@ -45,15 +45,15 @@ public class LoginController {
 
     private record loginRequest(
 
-            @NotBlank(message = "1")
-            @NotNull(message = "0")
-            @Size(min = 3, max = 64, message = "2")
+            @NotNull(message = "Please enter valid login")
+            @NotBlank(message = "Please enter valid login")
+            @Size(min = 3, max = 64, message = "Please enter valid login 3 - 50 characters")
             String login,
 
-            @NotNull(message = "0")
-            @NotBlank(message = "1")
-            @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–\\[\\]{}:;',?/*~$^+=<>]).{8,64}$", message =
-                    "4")
+            @NotNull(message = "Please enter valid password")
+            @NotBlank(message = "Please enter valid password")
+            @Pattern(regexp = "^.{5,64}$", message =
+                    "Please enter valid password 5-64 characters")
             String password) {
     }
 
