@@ -28,11 +28,11 @@ public class RegistrationController {
             return new ResponseEntity<>("This email is used by existing account", HttpStatus.BAD_REQUEST);
         }
 
-        if (userService.findUserByNick(request.nickname())!=null) {
+        if (userService.findUserByNick(request.username())!=null) {
             return new ResponseEntity<>("This nickname is used by existing account", HttpStatus.BAD_REQUEST);
         }
 
-        userService.addUser(new User(request.nickname(), request.email(), request.password()));
+        userService.addUser(new User(request.email(), request.username(), request.password()));
         User user = userService.findUserByEmail(request.email());
 
         return new ResponseEntity<>("User registered successfully", HttpStatus.OK);
@@ -42,7 +42,7 @@ public class RegistrationController {
             @NotNull(message = "Please enter valid nickname")
             @NotBlank(message = "Please enter valid nickname")
             @Size(min = 3, max = 50, message = "Please enter valid nickname 3 - 50 characters")
-            String nickname,
+            String username,
 
             @Email(message = "Please enter valid email")
             @Pattern(regexp = ".+@.+\\..+", message = "Please enter valid email")
