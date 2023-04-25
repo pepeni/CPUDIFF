@@ -17,9 +17,7 @@
             </div>
             <div class="view-name">
                 <select name="cpus" id="cpus">
-                    <option value="INTELCOREI58300H">Intel Core i5 8300H</option>
-                    <option value="AMDRYZEN55600">AMD Ryzen 5 5600</option>
-                    <option value="INTELCOREI712700H">Intel Core i7 12700H</option>
+                    <option *ngFor="let processor of processors" value={{processor.id}}>{{processor.name}}</option>
                 </select>
             </div>
             <div class="menu-link-div">

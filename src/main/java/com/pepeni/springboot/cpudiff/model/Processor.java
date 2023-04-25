@@ -18,6 +18,7 @@ public class Processor implements Serializable {
     private Double processorClockSpeed;
     private Double processorClockSpeedTurbo;
 
+    @Transient
     @OneToMany(mappedBy = "processor")
     Set<Comment> comments;
 

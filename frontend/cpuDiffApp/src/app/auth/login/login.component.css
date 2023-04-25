@@ -55,6 +55,7 @@ form label {
     border-color: #A000F0;
     border-radius: 50px;
     border-width: 5px;
+    color: white;
 }
 
 #submit {

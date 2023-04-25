@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Article } from './article';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService {
-  private apiServerUrl = 'http://localhost:8080';
+  private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -21,5 +22,13 @@ export class ArticleService {
 
   public addArticle(article: Article): Observable<Article> {
     return this.http.post<Article>(`${this.apiServerUrl}/addArticle`, article)
+  }
+
+  public updateArticle(article: Article): Observable<Article> {
+    return this.http.put<Article>(`${this.apiServerUrl}/updateArticle`, article)
+  }
+
+  public deleteArticle(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/deleteArticle/${id}`)
   }
 }
