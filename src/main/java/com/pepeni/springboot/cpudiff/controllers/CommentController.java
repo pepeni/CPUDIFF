@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 @Service
-public class CommentController {
+public class
+CommentController {
     private final CommentService commentService;
 
     public CommentController(CommentService commentService) {
