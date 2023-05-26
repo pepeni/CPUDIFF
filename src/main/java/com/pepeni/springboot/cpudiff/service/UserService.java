@@ -33,16 +33,9 @@ public class UserService {
         return userRepo.findUserByNick(nick);
     }
 
-    public User findUserByEmail(String email){
-        System.out.println(email);
-        return userRepo.findUserByEmail(email);}
+    public User findUserByEmail(String email){return userRepo.findUserByEmail(email);}
 
-    public void deleteUser(Long id){
-        userRepo.deleteById(id);
-    }
+    public void deleteUser(Long id){userRepo.deleteById(id);}
 
-    public Optional<User> findByEmail(String email) {
-        System.out.println(email);
-        return userRepo.findByEmail(email);
-    }
+    public Optional<User> findByEmail(String email) {return userRepo.findByEmail(email);}
 }
