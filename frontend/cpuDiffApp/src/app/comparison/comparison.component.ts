@@ -10,6 +10,8 @@ import { ProcessorService } from '../processor.service';
 })
 export class ComparisonComponent implements OnInit{
   public processors: Processor[];
+  public processor1: Processor;
+  public processor2: Processor;
 
   constructor(private processorService: ProcessorService){}
 
@@ -21,6 +23,8 @@ export class ComparisonComponent implements OnInit{
     this.processorService.getProcessors().subscribe(
       (response: Processor[]) => {
         this.processors = response;
+        this.processor1 = response[0];
+        this.processor2 = response[0];
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

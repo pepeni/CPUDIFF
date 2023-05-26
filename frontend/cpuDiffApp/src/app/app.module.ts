@@ -10,19 +10,21 @@ import { ComparisonComponent } from './comparison/comparison.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ProcessorComponent } from './processor/processor.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptor } from './jwt.interceptor';
+import { AuthGuard } from './auth.guard';
 
 
 const appRoute: Routes = [
-  {path: '', component: MenuComponent},
-  {path: 'Login', component: LoginComponent},
-  {path: 'Register', component: RegisterComponent},
-  {path: 'Menu', component: MenuComponent},
-  {path: 'ArticleList', component: ArticleListComponent},
-  {path: 'Article', component: ArticleComponent},
-  {path: 'Processor', component: ProcessorComponent},
-  {path: 'Comparison', component: ComparisonComponent}
+  {path: '', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'menu', component: MenuComponent, canActivate: [AuthGuard]},
+  {path: 'articleList', component: ArticleListComponent, canActivate: [AuthGuard]},
+  {path: 'article', component: ArticleComponent, canActivate: [AuthGuard]},
+  {path: 'processor', component: ProcessorComponent, canActivate: [AuthGuard]},
+  {path: 'comparison', component: ComparisonComponent, canActivate: [AuthGuard]}
 ]
 
 @NgModule({
@@ -39,9 +41,13 @@ const appRoute: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoute),
-    HttpClientModule, FormsModule
+    HttpClientModule, FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, 
+    { provide: AuthGuard, useClass: AuthGuard }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
