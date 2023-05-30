@@ -17,14 +17,14 @@ import { AuthGuard } from './auth.guard';
 
 
 const appRoute: Routes = [
-  {path: '', component: LoginComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'menu', component: MenuComponent, canActivate: [AuthGuard]},
-  {path: 'articleList', component: ArticleListComponent, canActivate: [AuthGuard]},
-  {path: 'article', component: ArticleComponent, canActivate: [AuthGuard]},
-  {path: 'processor', component: ProcessorComponent, canActivate: [AuthGuard]},
-  {path: 'comparison', component: ComparisonComponent, canActivate: [AuthGuard]}
+  {path: '', title: 'Login', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: 'login', title: 'Login', component: LoginComponent},
+  {path: 'register', title: 'Register', component: RegisterComponent},
+  {path: 'menu', title: 'Menu', component: MenuComponent, canActivate: [AuthGuard]},
+  {path: 'articleList', title: 'Articles', component: ArticleListComponent, canActivate: [AuthGuard]},
+  {path: 'articles/:id', title: 'Article', component: ArticleComponent, canActivate: [AuthGuard]},
+  {path: 'processor', title: 'Processor', component: ProcessorComponent, canActivate: [AuthGuard]},
+  {path: 'comparison', title: 'Compare', component: ComparisonComponent, canActivate: [AuthGuard]}
 ]
 
 @NgModule({

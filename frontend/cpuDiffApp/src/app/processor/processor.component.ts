@@ -30,12 +30,17 @@ export class ProcessorComponent implements OnInit{
         if (response.length > 0) {
           this.processor1 = response[0];
           this.selectedProcessor1Id = response[0].id;
+          this.getProcessorComments();
         }
+
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     );
+  }
+
+  public getProcessorComments(): void{
     this.commentService.getProcessorComments(this.processor1.id).subscribe(
       (response: Comment[]) => {
         this.comments = response;
@@ -44,6 +49,7 @@ export class ProcessorComponent implements OnInit{
         alert(error.message);
       }
     );
+    
   }
 
   public onProcessor1Change(): void {
@@ -51,13 +57,7 @@ export class ProcessorComponent implements OnInit{
     console.log(selectedProcessor);
     if (selectedProcessor) {
       this.processor1 = selectedProcessor;
-      this.commentService.getProcessorComments(this.processor1.id).subscribe(
-        (response: Comment[]) => {
-          this.comments = response;
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        })
+      this.getProcessorComments();
     }
   }
 
