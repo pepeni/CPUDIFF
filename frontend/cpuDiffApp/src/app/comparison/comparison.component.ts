@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Processor } from '../processor';
+import { Processor } from '../models/processor';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ProcessorService } from '../processor.service';
+import { ProcessorService } from '../services/processor.service';
 
 @Component({
   selector: 'app-comparison',

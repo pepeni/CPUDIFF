@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Processor } from '../processor';
-import { ProcessorService } from '../processor.service';
+import { Processor } from '../models/processor';
+import { ProcessorService } from '../services/processor.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CommentService } from '../services/comment.service';
+import { Comment } from '../models/comment';
 
 @Component({
   selector: 'app-processor',
@@ -13,8 +15,9 @@ export class ProcessorComponent implements OnInit{
   public processors: Processor[];
   public processor1: Processor;
   public selectedProcessor1Id: number;
+  public comments: Comment[];
 
-  constructor(private processorService: ProcessorService){}
+  constructor(private processorService: ProcessorService, private commentService: CommentService){}
 
   ngOnInit(): void {
     this.getProcessors();
@@ -33,6 +36,14 @@ export class ProcessorComponent implements OnInit{
         alert(error.message);
       }
     );
+    this.commentService.getProcessorComments(this.processor1.id).subscribe(
+      (response: Comment[]) => {
+        this.comments = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   public onProcessor1Change(): void {
@@ -40,6 +51,13 @@ export class ProcessorComponent implements OnInit{
     console.log(selectedProcessor);
     if (selectedProcessor) {
       this.processor1 = selectedProcessor;
+      this.commentService.getProcessorComments(this.processor1.id).subscribe(
+        (response: Comment[]) => {
+          this.comments = response;
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        })
     }
   }
 
