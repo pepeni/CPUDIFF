@@ -2,6 +2,7 @@ package com.pepeni.springboot.cpudiff.service;
 
 import com.pepeni.springboot.cpudiff.model.User;
 import com.pepeni.springboot.cpudiff.repository.UserRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,8 @@ public class UserService {
 
     public User findUserByEmail(String email){return userRepo.findUserByEmail(email);}
 
-    public void deleteUser(Long id){userRepo.deleteById(id);}
+    @Transactional
+    public void deleteUser(Long id){userRepo.deleteUserById(id);}
 
     public Optional<User> findByEmail(String email) {return userRepo.findByEmail(email);}
 }

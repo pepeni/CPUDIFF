@@ -2,6 +2,7 @@ package com.pepeni.springboot.cpudiff.service;
 
 import com.pepeni.springboot.cpudiff.model.Comment;
 import com.pepeni.springboot.cpudiff.repository.CommentRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,4 +40,7 @@ public class CommentService {
     public void deleteComment(Long id){
         commentRepo.deleteById(id);
     }
+
+    @Transactional
+    public void deleteCommentsByUserId(Long id) { commentRepo.deleteCommentsByUserId(id);}
 }

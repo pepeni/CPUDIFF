@@ -36,4 +36,9 @@ export class AuthService {
   public register(dane: Object[]): Observable<Object[]> {
     return this.http.post<Object[]>(`${this.apiServerUrl}/auth/register`, dane)
   }
+
+  public deleteAccount(): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/auth/deleteAccount`)
+  }
+
 }
