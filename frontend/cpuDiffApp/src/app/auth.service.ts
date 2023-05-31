@@ -41,4 +41,8 @@ export class AuthService {
     return this.http.delete<void>(`${this.apiServerUrl}/auth/deleteAccount`)
   }
 
+  public getUserInfo(): Observable<Object[]> {
+    return this.http.get<Object[]>(`${this.apiServerUrl}/auth/userInfo`)
+  }
+
 }

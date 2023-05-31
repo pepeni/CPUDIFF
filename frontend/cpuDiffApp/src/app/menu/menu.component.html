@@ -17,7 +17,7 @@
             </div>
             <div class="menu-name"><h1>menu</h1></div>
             <div class="dropdown">
-                <button class="dropbtn">Nick123</button>
+                <button class="dropbtn">{{userInfo?.role}}<br>{{userInfo?.nick}}</button>
                 <div class="dropdown-content">
                     <a href="/login" (click)="handleClickLogOut()">Wyloguj</a>
                     <a href="/login" (click)="handleClickDeleteAccount()">Usuń konto</a>
