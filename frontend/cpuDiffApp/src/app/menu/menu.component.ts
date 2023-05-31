@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
 
-  handleClick(): void {
+  handleClickLogOut(): void {
+    localStorage.clear();
+  }
+
+  handleClickDeleteAccount(): void {
     localStorage.clear();
   }
 

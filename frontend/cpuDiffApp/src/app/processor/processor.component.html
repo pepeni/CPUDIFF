@@ -49,8 +49,8 @@
 
             <form>
                 <div class="comments-div">
-                    <textarea name="comments-input" class="add-comment-input"></textarea>
-                    <button class="add-comment-button">Dodaj komentarz</button>
+                    <textarea name="comments-input" class="add-comment-input" [(ngModel)]="newComment"></textarea>
+                    <div class="add-comment-button" (click)="addComment()">Dodaj komentarz</div>
                     <div class="comments">
                         
                         <div class="comment" *ngFor="let comment of comments">

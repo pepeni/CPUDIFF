@@ -35,7 +35,7 @@ CommentController {
         User user = (User) authentication.getPrincipal();
         comment.setUser(user);
         comment.setContent(commentRequest.getContent());
-        comment.setProcessor(processorService.findProcessorById(commentRequest.getProcessId()));
+        comment.setProcessor(processorService.findProcessorById(commentRequest.getProcessorId()));
         commentService.addComment(comment);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

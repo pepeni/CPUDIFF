@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CommentRequest {
     private String content;
-    private Long processId;
+    private Long processorId;
 }

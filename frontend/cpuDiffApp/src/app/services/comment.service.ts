@@ -16,4 +16,8 @@ export class CommentService {
   public getProcessorComments(id: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.apiServerUrl}/comments/${id}`);
   }
+
+  public addProcessorComment(request: Object): Observable<void> {
+    return this.http.post<void>(`${this.apiServerUrl}/addComment`, request);
+  }
 }

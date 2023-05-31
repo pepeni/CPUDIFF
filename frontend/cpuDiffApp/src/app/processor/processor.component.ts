@@ -16,6 +16,7 @@ export class ProcessorComponent implements OnInit{
   public processor1: Processor;
   public selectedProcessor1Id: number;
   public comments: Comment[];
+  public newComment: string;
 
   constructor(private processorService: ProcessorService, private commentService: CommentService){}
 
@@ -57,6 +58,20 @@ export class ProcessorComponent implements OnInit{
     console.log(selectedProcessor);
     if (selectedProcessor) {
       this.processor1 = selectedProcessor;
+      this.getProcessorComments();
+    }
+  }
+
+  public addComment(): void {
+    if (this.newComment && this.newComment.trim() !== '') {
+      const comment: Object = {
+        processorId: this.processor1.id,
+        content: this.newComment
+      };
+      console.log(comment);
+      this.commentService.addProcessorComment(comment).subscribe();
+      
+      this.newComment = '';
       this.getProcessorComments();
     }
   }
