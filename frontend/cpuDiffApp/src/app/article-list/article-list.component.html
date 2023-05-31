@@ -17,11 +17,11 @@
             </div>
             <div class="view-name"><h1>Dowiedz się więcej!</h1></div>
             <div class="menu-link-div">
-                <a routerLink="/Menu" class="menu-link">menu</a>
+                <a routerLink="/menu" class="menu-link">menu</a>
             </div>
         </div>
         <div class="articles-container">
-            <a *ngFor="let article of articles" class="article-link" href="">
+            <a *ngFor="let article of articles" class="article-link" [href]="'/articles/' + article.id">
                 <div class="article">
                     <p>{{article.title}}</p>
                 </div>

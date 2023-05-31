@@ -17,48 +17,49 @@
             </div>
             <div class="view-name"><h1>CPU COMPARISON</h1></div>
             <div class="menu-link-div">
-                <a routerLink="/Menu" class="menu-link">menu</a>
+                <a routerLink="/menu" class="menu-link">menu</a>
             </div>
         </div>
         
         <div class="comparison-div">
-            <select name="cpus1" id="cpus1">
-                <option *ngFor="let processor of processors" value={{processor.id}}>{{processor.name}}</option>
-            </select>
-
-            <select name="cpus2" id="cpus2">
-                <option *ngFor="let processor of processors" value={{processor.id}}>{{processor.name}}</option>
-            </select>
+            <select name="cpus1" id="cpus1" [(ngModel)]="selectedProcessor1Id" (change)="onProcessor1Change()">
+                <option *ngFor="let processor of processors" [value]="processor.id">{{processor.name}}</option>
+              </select>
+              
+              <select name="cpus2" id="cpus2" [(ngModel)]="selectedProcessor2Id" (change)="onProcessor2Change()">
+                <option *ngFor="let processor of processors" [value]="processor.id">{{processor.name}}</option>
+              </select>
+              
 
             <div class="trait">
                 <p>Klasa CPU</p>
                 <div class="trait-content">
-                    <div class="trait-cpu-1">Laptop</div>
-                    <div class="trait-cpu-2">Komputer</div>
+                    <div class="trait-cpu-1" *ngIf="processor1">{{processor1.cpuClass}}</div>
+                    <div class="trait-cpu-2" *ngIf="processor2">{{processor2.cpuClass}}</div>
                 </div>
             </div>
 
             <div class="trait">
                 <p>Rdzenie</p>
                 <div class="trait-content">
-                    <div class="trait-cpu-1">4</div>
-                    <div class="trait-cpu-2">6</div>
+                    <div class="trait-cpu-1" *ngIf="processor1">{{processor1.cores}}</div>
+                    <div class="trait-cpu-2" *ngIf="processor2">{{processor2.cores}}</div>
                 </div>
             </div>
 
             <div class="trait">
                 <p>Taktowanie zegara (GHz)</p>
                 <div class="trait-content">
-                    <div class="trait-cpu-1">2.3</div>
-                    <div class="trait-cpu-2">3.5</div>
+                    <div class="trait-cpu-1" *ngIf="processor1">{{processor1.processorClockSpeed}}</div>
+                    <div class="trait-cpu-2" *ngIf="processor2">{{processor2.processorClockSpeed}}</div>
                 </div>
             </div>
 
             <div class="trait">
                 <p>Prędkość turbo zegara (GHz)</p>
                 <div class="trait-content">
-                    <div class="trait-cpu-1">4</div>
-                    <div class="trait-cpu-2">4.6</div>
+                    <div class="trait-cpu-1" *ngIf="processor1">{{processor1.processorClockSpeedTurbo}}</div>
+                    <div class="trait-cpu-2" *ngIf="processor2">{{processor2.processorClockSpeedTurbo}}</div>
                 </div>
             </div>
         </div>

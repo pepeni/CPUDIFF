@@ -20,6 +20,7 @@ public class Comment implements Serializable {
     @JoinColumn(name = "processor_id")
     private Processor processor;
 
+
     private String content;
 
 

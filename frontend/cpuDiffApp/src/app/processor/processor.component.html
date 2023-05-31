@@ -16,12 +16,12 @@
                 <h1>CPU DIFF</h1>
             </div>
             <div class="view-name">
-                <select name="cpus" id="cpus">
-                    <option *ngFor="let processor of processors" value={{processor.id}}>{{processor.name}}</option>
+                <select name="cpus" id="cpus" [(ngModel)]="selectedProcessor1Id" (change)="onProcessor1Change()">
+                    <option *ngFor="let processor of processors" [value]="processor.id">{{processor.name}}</option>
                 </select>
             </div>
             <div class="menu-link-div">
-                <a routerLink="/Menu" class="menu-link">menu</a>
+                <a routerLink="/menu" class="menu-link">menu</a>
             </div>
         </div>
         
@@ -29,32 +29,33 @@
 
             <div class="trait">
                 <p>Klasa CPU</p>
-                <div class="trait-cpu">Laptop</div>
+                <div class="trait-cpu" *ngIf="processor1">{{processor1.cpuClass}}</div>
             </div>
 
             <div class="trait">
                 <p>Rdzenie</p>
-                <div class="trait-cpu">4</div>
+                <div class="trait-cpu" *ngIf="processor1">{{processor1.cores}}</div>
             </div>
 
             <div class="trait">
                 <p>Taktowanie zegara (GHz)</p>
-                <div class="trait-cpu">2.3</div>
+                <div class="trait-cpu" *ngIf="processor1">{{processor1.processorClockSpeed}}</div>
             </div>
 
             <div class="trait">
                 <p>Prędkość turbo zegara (GHz)</p>
-                <div class="trait-cpu">4</div>
+                <div class="trait-cpu" *ngIf="processor1">{{processor1.processorClockSpeedTurbo}}</div>
             </div>
 
             <form>
                 <div class="comments-div">
-                    <textarea name="comments-input" class="add-comment-input"></textarea>
-                    <button class="add-comment-button">Dodaj komentarz</button>
+                    <textarea name="comments-input" class="add-comment-input" [(ngModel)]="newComment"></textarea>
+                    <div class="add-comment-button" (click)="addComment()">Dodaj komentarz</div>
                     <div class="comments">
-                        <div class="comment">
-                            <div class="nickname">Nick12</div>
-                            <p>I love this CPU! AMAZING CPU!!!!! BUY NOW!</p>
+                        
+                        <div class="comment" *ngFor="let comment of comments">
+                            <div class="nickname">{{comment.userNick}}</div>
+                            <p>{{comment.content}}</p>
                         </div>
                         <div class="comment">
                             <div class="nickname">Nick12</div>

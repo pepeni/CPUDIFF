@@ -13,7 +13,7 @@ public class Article implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     private String title;
-    @Lob
+    @Column(length = 10000)
     private String content;
 
     public Article() {

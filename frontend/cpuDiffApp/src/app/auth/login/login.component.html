@@ -16,15 +16,15 @@
         </div>
 
       <form #loginForm="ngForm" (ngSubmit)="onUserLogin(loginForm)">
-        <label for="username">Login:</label>
-        <input type="text" id="username" ngModel name="username" required />
+        <label for="email">Email:</label>
+        <input type="text" id="email" ngModel name="email" required />
 
         <label for="password">Haslo:</label>
         <input type="password" id="password" ngModel name="password" required />
 
         <input type="submit" id="submit" value="Zaloguj" />
       </form>
-      <a routerLink="/Menu">Zarejestruj się!</a>
+      <a routerLink="/register">Zarejestruj się!</a>
     </div>
   </body>
 </html>
