@@ -19,5 +19,21 @@ My web application is a platform that allows users to compare processors, commen
 
 # Database
 
-![Database ERD](DiagramERD.png)
+![Database ERD](readmeFiles/DiagramERD.png)
 
+#Screenshots
+
+ - register
+    ![](readmeFiles/register.png)
+ - login
+   ![](readmeFiles/login.png)
+ - menu
+   ![](readmeFiles/menu.png)
+   ![](readmeFiles/menuHover.png)
+   ![](readmeFiles/dropDownMenu.png)
+ - articles
+   ![](readmeFiles/articles.png)
+ - processor
+   ![](readmeFiles/processor.png)
+ - comparison
+   ![](readmeFiles/comparison.png)
