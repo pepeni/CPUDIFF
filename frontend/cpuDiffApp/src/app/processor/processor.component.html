@@ -24,7 +24,7 @@
                 <a routerLink="/menu" class="menu-link">menu</a>
             </div>
         </div>
-        
+
         <div class="explore-div">
 
             <div class="trait">
@@ -52,22 +52,10 @@
                     <textarea name="comments-input" class="add-comment-input" [(ngModel)]="newComment"></textarea>
                     <div class="add-comment-button" (click)="addComment()">Dodaj komentarz</div>
                     <div class="comments">
-                        
+
                         <div class="comment" *ngFor="let comment of comments">
                             <div class="nickname">{{comment.userNick}}</div>
                             <p>{{comment.content}}</p>
-                        </div>
-                        <div class="comment">
-                            <div class="nickname">Nick12</div>
-                            <p>I love this CPU! AMAZING CPU!!!!! BUY NOW!</p>
-                        </div>
-                        <div class="comment">
-                            <div class="nickname">LOL123</div>
-                            <p>sdaf sdfasf dfeasf wdasdf wdwadaaa DSA.</p>
-                        </div>
-                        <div class="comment">
-                            <div class="nickname">Nick12</div>
-                            <p>I love this CPU! AMAZING CPU!!!!! BUY NOW!</p>
                         </div>
                     </div>
                 </div>
